@@ -1,49 +1,33 @@
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
-import { chartTitle } from "@/components/primitives";
-import { cn } from "@/lib/utils";
 
-export default function MetricCard({
-  title,
-  value,
-  change,
-  className,
-}: {
+interface Props {
   title: string;
   value: string;
-  change: number;
-  className?: string;
-}) {
-  return (
-    <section className={cn("flex flex-col", className)}>
-      <h2 className={cn(chartTitle({ color: "mute", size: "sm" }), "mb-1")}>
-        {title}
-      </h2>
-      <div className="flex items-center gap-2">
-        <span className="text-xl font-medium">{value}</span>
-        <ChangeIndicator change={change} />
-      </div>
-      <div className="text-xs text-muted-foreground">Compare to last month</div>
-    </section>
-  );
+  subtitle?: string;
+  change?: string;
+  changeType?: "up" | "down";
 }
 
-function ChangeIndicator({ change }: { change: number }) {
+export default function MetricCard({title, value, subtitle, change, changeType}: Props){
+  const isUp = changeType === "up";
+  const changeColor = isUp ? "text-green-600 bg-green-100" : "text-red-600 bg-red-100";
+  const ArrowIcon = isUp ? ArrowUpRight : ArrowDownRight;
+  
   return (
-    <span
-      className={cn(
-        "flex items-center rounded-sm px-1 py-0.5 text-xs text-muted-foreground",
-        change > 0
-          ? "bg-green-50 text-green-500 dark:bg-green-950"
-          : "bg-red-50 text-red-500 dark:bg-red-950",
+    <div className="rounded-xl border bg-background p-6 shadow-sm dark:border-gray-700">
+    <div className="flex items-center justify-between">
+      <div className = "text-sm font-medium text-muted-foreground">{title}</div>
+      {change && (
+        <div className={'flex items-center text-xs font-medium px-2 py-1 rounded-full ${changeColor}'}>
+          <ArrowIcon className="w-3 h-3 mr-1" />
+          {change}
+        </div>
       )}
-    >
-      {change > 0 ? "+" : ""}
-      {Math.round(change * 100)}%
-      {change > 0 ? (
-        <ArrowUpRight className="ml-0.5 inline-block h-3 w-3" />
-      ) : (
-        <ArrowDownRight className="ml-0.5 inline-block h-3 w-3" />
-      )}
-    </span>
+    </div>
+    <div className="mt-2 text-3xl font-bold text-primary">{value}</div>
+    {subtitle && (
+      <div className="text-xs text-muted-foreground mt-1">{subtitle}</div>
+    )}
+  </div>
   );
 }
