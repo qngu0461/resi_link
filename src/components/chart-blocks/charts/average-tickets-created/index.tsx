@@ -34,12 +34,12 @@ export default function AverageTicketsCreated() {
       <div className="flex flex-wrap">
         <div className="my-4 flex w-52 shrink-0 flex-col justify-center gap-6">
           <MetricCard
-            title="Avg. Tickets Created"
+            title="Avg. Requests Created"
             value={avgCreated}
             color="#60C2FB"
           />
           <MetricCard
-            title="Avg. Tickets Resolved"
+            title="Avg. Requests Resolved"
             value={avgResolved}
             color="#3161F8"
           />
