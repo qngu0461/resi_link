@@ -1,16 +1,17 @@
-// File: src/app/chat/layout.tsx
-
+import Container from "@/components/container";
 import { TopNav } from "@/components/nav";
 
-export default function ChatLayout({
-    children,
+export default function ResidentLayout({
+  children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-    return (
-        <>
-        <TopNav title="Resident Chat" />
-        <main className="p-6">{children}</main>
-        </>
-    );
+  return (
+    <>
+      <TopNav title="Chat" />
+      <main>
+        <Container>{children}</Container>
+      </main>
+    </>
+  );
 }

@@ -22,7 +22,7 @@ export default function ChatPage() {
     };
 
     loadMessages();
-    const interval = setInterval(loadMessages, 3000);
+    const interval = setInterval(loadMessages, 1000);
     return () => clearInterval(interval);
   }, []);
 
