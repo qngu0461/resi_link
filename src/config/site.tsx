@@ -21,8 +21,8 @@ export type Navigation = {
 
 
 export const siteConfig = {
-  title: "Dang Kim Thi",
-  description: "Created by DangKimThi",
+  title: "Quang Minh Nguyen",
+  description: "Created by Quang Minh Ngyen",
 };
 
 export const navigations: Navigation[] = [
