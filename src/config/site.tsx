@@ -21,8 +21,8 @@ export type Navigation = {
 
 
 export const siteConfig = {
-  title: "Quang Minh Nguyen",
-  description: "Created by Quang Minh Ngyen",
+  title: process.env.NEXT_PUBLIC_APP_NAME || "ResiLink",
+  description: process.env.NEXT_PUBLIC_APP_DESCRIPTION || "",
 };
 
 export const navigations: Navigation[] = [

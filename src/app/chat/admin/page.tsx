@@ -49,7 +49,7 @@ export default function AdminChatPage() {
     <div className="p-6 max-w-3xl mx-auto space-y-6">
       <h1 className="text-3xl font-bold">🧑‍💼 Admin Chat</h1>
       <p className="text-muted-foreground">
-        Please view and respond to residents' messages below.
+        View and respond to residents' messages below.
       </p>
 
       <div className="border rounded-lg bg-gray-50 dark:bg-gray-800 h-[400px] overflow-y-auto p-4 space-y-3 shadow">
