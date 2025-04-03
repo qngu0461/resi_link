@@ -5,19 +5,24 @@ import {
   Users,
   Folder,
   BookOpen,
-  BarChart3,    
-  } from "lucide-react";
+  BarChart3,
+  LucideIcon,
+  DollarSignIcon,
+} from "lucide-react";
 
 export type SiteConfig = typeof siteConfig;
+
+
 export type Navigation = {
-  icon: any;
+  icon: LucideIcon;
   name: string;
   href: string;
 };
 
+
 export const siteConfig = {
-  title: "Quang Minh Nguyen",
-  description: "Created by Quang Minh Nguyen",
+  title: "Dang Kim Thi",
+  description: "Created by DangKimThi",
 };
 
 export const navigations: Navigation[] = [
@@ -39,15 +44,15 @@ export const navigations: Navigation[] = [
   {
     icon: Users,
     name: "Committee",
-    href: "/committee"
+    href: "/committee",
   },
   {
-    icon: Folder,
+    icon: DollarSignIcon,
     name: "Levies",
     href: "/levies",
   },
   {
-    icon: BookOpen,
+    icon: Folder,
     name: "Documents",
     href: "/documents",
   },
