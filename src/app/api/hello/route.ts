@@ -1,7 +1,7 @@
 export const runtime = "edge"; 
 
 export async function GET(request: Request) {
-  // @ts-ignore - 
+  // @ts-expect-error
   const country = request.geo?.country || "your place";
 
   const countryNames: Record<string, string> = {
