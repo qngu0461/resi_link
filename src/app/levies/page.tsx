@@ -8,7 +8,7 @@ type Levy = {
     capital: number;
 };
 
-export default function leviesPage() {
+export default function LeviesPage() {
     const [data, setData] = useState<Levy[]>([]);
 
     useEffect(() => {
