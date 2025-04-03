@@ -7,7 +7,9 @@ import Chart from "./chart";
 export default function Convertions() {
   return (
     <section className="flex h-full flex-col gap-2">
-      <ChartTitle title="Conversions" icon={CirclePercent} />
+      <ChartTitle title="Requests by Building" />
+      <h2 className="text-3xl font-bold">17,220 Requests</h2>
+      
       <Indicator />
       <div className="relative max-h-80 flex-grow">
         <Chart />
@@ -24,7 +26,7 @@ function Indicator() {
           convertions.reduce((acc, curr) => acc + curr.value, 0),
         )}
       </span>
-      <span className="text-muted-foreground/60">Sales</span>
+      <span className="text-muted-foreground/60">Requests</span>
     </div>
   );
 }

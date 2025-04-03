@@ -30,7 +30,7 @@ const customerSatisficationOptions = [
 export default function CustomerSatisfication() {
   return (
     <section className="flex h-full flex-col gap-2">
-      <ChartTitle title="Customer Satisfication" icon={SmilePlus} />
+      <ChartTitle title="Resident Feedback" icon={SmilePlus} />
       <div className="my-4 flex h-full items-center justify-between">
         <div className="mx-auto grid w-full grid-cols-2 gap-6">
           <TotalCustomers />
@@ -53,7 +53,7 @@ function TotalCustomers() {
   return (
     <div className="flex flex-col items-start justify-center">
       <div className="text-xs text-muted-foreground">Responses Received</div>
-      <div className="text-2xl font-medium">{totalCustomers} Customers</div>
+      <div className="text-2xl font-medium">{totalCustomers} Residents</div>
     </div>
   );
 }
