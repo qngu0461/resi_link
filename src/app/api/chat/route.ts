@@ -1,7 +1,10 @@
 // File: src/app/api/chat/route.ts
-import { NextRequest, NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 
-let chatMessages = [
+
+// In-memory message store (for demo only)
+const chatMessages = [
   { from: "resident", text: "Hi, I have a plumbing issue in unit B203." },
   { from: "admin", text: "Thanks for reporting! We’ll arrange a plumber today." },
 ];
