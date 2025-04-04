@@ -1,10 +1,10 @@
 {
-    "rewrites": [
-        {
-            "source": "/feedback",
-            "destination": "/feedback/page.tsx"
-
-        }
-    ],
-    "regions": ["syd1"]
-}
+    "regions": ["syd1"],
+    "buildCommand": "npm run build",
+    "crons": [
+      {
+        "path": "/api/weekly-report",
+        "schedule": "0 9 * * 1"
+      }
+    ]
+  }

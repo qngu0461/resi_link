@@ -1,70 +1,91 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { useState } from 'react';
 
-export default function FeedbackPage() {
-    const [name, setName] = useState("");
-    const [message, setMessage] = useState("");
-    const [sent, setSent] = useState(false);
-    const [error, setError] = useState("");
+export default function FeedbackFormPage() {
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
 
-    const handleSubmit = async () => {
-        if (!name.trim() || !message.trim()) {
-            setError("Please fill in both fields.");
-            return;
-        }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-        try {
-            await fetch("/api/feedback", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ name, message }),
-            });
-            setSent(true);
-            setError("");
-            setName("");
-            setMessage("");
-            } catch (err) {
-                setError("Something went wrong. Please try again.")
-            }
-    };
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
 
-    return (
-        <div className="p-6 max-w-xl mx-auto space-y-6">
-            <h1 className="text-3xl font-bold">📣 Send Us Your Feedback</h1>
-            <p className="text-muted-foreground">
-                We value your opinion! Help us improve building management.
-            </p>
-            
-            {sent && (
-                <div className="p-4 bg-green-100 dark:bg-green-900 rounded text-sm">
-                    ✅ Feedback sent! Thank you!
-                </div>
-            )}
+    const res = await fetch('/api/feedback', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
 
-            {error && (
-                <div className="p-2 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded text-sm">
-                    {error}
-                </div>
-            )}
+    if (res.redirected) {
+      window.location.href = res.url;
+    } else {
+      setLoading(false);
+      setSubmitted(true);
+    }
+  };
 
-            <div className="space-y-4">
-                <Input
-                    placeholder="Your Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
-                <Textarea
-                    placeholder="Your Feedback"
-                    rows={5}
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                />
-                <Button onClick={handleSubmit}>Submit Feedback</Button>
-            </div>
-        </div>
-    );
+  return (
+    <div className="p-6 max-w-xl mx-auto">
+      <h1 className="text-2xl font-bold mb-4">📝 Send Feedback</h1>
+
+      {submitted ? (
+        <p className="text-green-600">Thank you for your feedback!</p>
+      ) : (
+        <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 rounded shadow">
+          <div>
+            <label className="block font-medium">Name</label>
+            <input
+              type="text"
+              name="name"
+              required
+              className="w-full border p-2 rounded"
+              value={formData.name}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div>
+            <label className="block font-medium">Email</label>
+            <input
+              type="email"
+              name="email"
+              required
+              className="w-full border p-2 rounded"
+              value={formData.email}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div>
+            <label className="block font-medium">Message</label>
+            <textarea
+              name="message"
+              required
+              className="w-full border p-2 rounded"
+              rows={4}
+              value={formData.message}
+              onChange={handleChange}
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="bg-blue-600 text-white px-4 py-2 rounded"
+            disabled={loading}
+          >
+            {loading ? 'Sending...' : 'Submit'}
+          </button>
+        </form>
+      )}
+    </div>
+  );
 }
