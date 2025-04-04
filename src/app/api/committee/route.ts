@@ -6,17 +6,17 @@ const committee = [
   {
     name: "Alice Nguyen",
     role: "Chairperson",
-    photo: "https://randomuser.me/api/portraits/women/44.jpg",
+    photo: "/alice.png",
   },
   {
-    name: "David Tran",
+    name: "Darren Watkins",
     role: "Secretary",
-    photo: "https://randomuser.me/api/portraits/men/80.jpg",
+    photo: "/david.png",
   },
   {
-    name: "Linda Pham",
+    name: "Valentina Shevchenko",
     role: "Treasurer",
-    photo: "https://randomuser.me/api/portraits/women/68.jpg",
+    photo: "/linda.png",
   },
 ];
 
