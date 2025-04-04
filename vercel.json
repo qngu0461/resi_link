@@ -1,0 +1,10 @@
+{
+    "rewrites": [
+        {
+            "source": "/feedback",
+            "destination": "/feedback/page.tsx"
+
+        }
+    ],
+    "regions": ["syd1"]
+}
