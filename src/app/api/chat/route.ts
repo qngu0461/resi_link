@@ -2,6 +2,7 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
+export const runtime = 'edge';
 
 // In-memory message store (for demo only)
 const chatMessages = [
