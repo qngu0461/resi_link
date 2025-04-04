@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const runtime = 'edge';
 
-// Bộ nhớ tạm lưu feedback
 const feedbackStore: {
   name: string;
   email: string;
@@ -18,7 +17,7 @@ export async function POST(req: NextRequest) {
     submittedAt: new Date().toISOString(),
   };
 
-  feedbackStore.push(feedback); // Lưu tạm
+  feedbackStore.push(feedback); 
   console.log("📩 Feedback received:", feedback);
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
