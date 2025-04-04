@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 export const runtime = 'edge';
 
 // Bộ nhớ tạm lưu feedback
-let feedbackStore: {
+const feedbackStore: {
   name: string;
   email: string;
   message: string;
