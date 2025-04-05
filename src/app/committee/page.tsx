@@ -26,7 +26,7 @@ export default function CommitteePage() {
         <div className="p-6 max-w-5xl mx-auto space-y-8">
             <h1 className="text-3xl font-bold">🏢 Strata Committee</h1>
             <p className="text-muted-foreground">
-                This committee is elected to represent all ownners in the building. Below are the current memebrs as of April 2025.
+                This committee is elected to represent all ownners in the building. Below are the current members as of April 2025.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
