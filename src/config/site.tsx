@@ -4,10 +4,11 @@ import {
   Wrench,
   Users,
   Folder,
-  BookOpen,
   BarChart3,
   LucideIcon,
   DollarSignIcon,
+  Building,
+  UserCheck,
 } from "lucide-react";
 
 export type SiteConfig = typeof siteConfig;
@@ -21,7 +22,7 @@ export type Navigation = {
 
 
 export const siteConfig = {
-  title: process.env.NEXT_PUBLIC_APP_NAME || "ResiLink",
+  title: process.env.NEXT_PUBLIC_APP_NAME || "My App",
   description: process.env.NEXT_PUBLIC_APP_DESCRIPTION || "",
 };
 
@@ -31,21 +32,7 @@ export const navigations: Navigation[] = [
     name: "Dashboard",
     href: "/",
   },
-  {
-    icon: MessagesSquare,
-    name: "Chat",
-    href: "/chat",
-  },
-  {
-    icon: Wrench,
-    name: "Requests",
-    href: "/requests",
-  },
-  {
-    icon: Users,
-    name: "Committee",
-    href: "/committee",
-  },
+ 
   {
     icon: DollarSignIcon,
     name: "Levies",
@@ -57,8 +44,33 @@ export const navigations: Navigation[] = [
     href: "/documents",
   },
   {
+    icon: Building,
+    name: "Building Info",
+    href: "/buildinginfo",
+  },
+  {
+    icon: UserCheck,
+    name: "Strata Roll",
+    href: "/strataroll",
+  },
+  {
+    icon: MessagesSquare,
+    name: "Chat",
+    href: "/chat",
+  },
+  {
     icon: BarChart3,
     name: "Feedback",
     href: "/feedback",
+  },
+  {
+    icon: Wrench,
+    name: "Requests",
+    href: "/requests",
+  },
+  {
+    icon: Users,
+    name: "Committee",
+    href: "/committee",
   },
 ];
